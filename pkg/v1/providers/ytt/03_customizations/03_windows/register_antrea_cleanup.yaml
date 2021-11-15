@@ -2,7 +2,7 @@
 #@ load("@ytt:data", "data")
 #@ if data.values.IS_WINDOWS_WORKLOAD_CLUSTER:
 #@ if data.values.CNI == "antrea":
-#@overlay/match by=overlay.subset({"kind":"KubeadmConfigTemplate", "metadata":{"name": str(data.values.CLUSTER_NAME) + "-md-0-windows-containerd"}})
+#@overlay/match by=overlay.subset({"kind":"KubeadmConfigTemplate"}), expects="1+"
 ---
 spec:
   template:
